@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        table, th, td {border: 1px solid rebeccapurple; border-collapse: collapse; padding: 10px}
+        tr:nth-child(even) {background-color: #D6EEEE;}
+    </style>
+    <!--padding 자신을 기준으로 얼마만큼의 여분을 주겠다.-->
+</head>
+<body style="margin: 40px">
+    <table border="1px" style="width: 60%;"><!--style="width: 00%" 전체 페이지 중에서 몇퍼센트를 차지하겠다.-->
+        <thead><!--제목-->
+            <tr align="center"><!--th 생략 가능-->
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody><!--본문-->
+            <tr align="center">
+                <td>Alfreds Futterkiste</td><!--td 생략 가능-->
+                <td>Maria Anders</td>
+                <td rowspan="2">Germany</td><!--rowspan 열을 합친다. 동일 열에 데이터가 겹칠 경우 데이터가 밀린다.-->
+            </tr>
+            <tr align="center">
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+            </tr>
+            <tr align="center">
+                <td>Magazzini Alimentari Riuniti</td>
+                <td colspan="2" align="center">Unkown</td><!--colspan 행을 합친다.-->
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>
