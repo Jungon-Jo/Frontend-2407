@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입력 Form</title>
+  <style>
+    label input {padding: 5px;}
+  </style>
+</head>
+<body style="margin: 40px;">
+  <form action="#" method="get">
+  <!--action으로 보내는 경로를 선택/method는 데이터를 보내는 방식으로 get, post 등의 방식이 있다-->
+
+    <label for="uname">User name</label><br>
+    <!--"for"이 찾는것이 "input의 id"-->
+    <input type="text" name="uname" id="uname" placeholder="uname을 입력하세요" required><br><br>
+    <!--server는 name의 값을 입력한다.-->
+    <!--required 해당 내용 미 작성시 제출되지 않는다.-->
+    <!--placeholder 해당 입력란에 작성되어야 할 내용을 구체적으로 명시하기 위함이며,
+    value와 달리 입력란에 데이터 입력 시 기존 내용은 사라진다.-->
+    <label for="pwd">Password</label><br>
+    <input type="password" name="pwd" id="pwd"><br><br>
+    <label for="tel">Phone Number</label><br>
+    <input type="tel" id="tel" value="114"><br><br>
+    <!--value 기본 포맷상 데이터를 미리 입력해두는 역할-->
+    <label for="email">E-mail</label><br>
+    <input type="email" id="email" disabled><br><br>
+    <!--입력할 수 없게끔 막아두는 역할-->
+
+    <input type="radio" id="html" name="fav_language" value="HTML">
+    <!--선택항목이며, 택1만 가능하도록 해주는 코드-->
+    <label for="html">HTML</label><br>
+    <input type="radio" id="css" name="fav_language" value="CSS" checked>
+    <label for="css">CSS</label><br>
+    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+    <label for="javascript">JavaScript</label><br><br>
+
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" checked>
+    <!--다중항목 선택의 경우는 체크박스를 사용/server로 전송되는 데이터는 value값-->
+    <label for="vehicle1"> I have a bike</label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+    <label for="vehicle2"> I have a car</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" checked>
+    <label for="vehicle3"> I have a boat</label><br><br>
+
+    <label for="friut">과일</label>
+    <select name="friut" id="friut">
+      <option value="apple">사과</option>
+      <option value="watermelon">수박</option>
+      <option value="strawberry" selected>딸기</option>
+    </select><br><br>
+
+    <label for="intro">자기소개</label><br>
+    <textarea name="intro" id="intro" rows="10" cols="60">[경력사항]</textarea><br><br>
+  
+    <input type="submit" value="제출">
+    <input type="reset" value="취소(입력 데이터 없애기)">
+  </form>
+</body>
+</html>
