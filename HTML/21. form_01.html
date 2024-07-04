@@ -6,54 +6,35 @@
   <title>Form_01</title>
 	<style>
 		table {margin: auto;}
-		table tr th {text-align: left; padding: 10px;}
-		table tr:nth-child(odd) {background-color: gainsboro;}
+		table tr th {text-align: left; padding: 5px;}
 		table tr td {padding-left: 10px;}
-		input {border-width: 0 0 0px; background-color: transparent;}
-		input:focus {outline: none; border-width: 0 0 1px;}
-		textarea {border-width: 0 0 0px;}
+		.font {font-size: 12px;}
+		textarea {resize: none;}
 	</style>
 </head>
 <body style="margin: 40px;">
+	<img src="https://picsum.photos/1000/120" alt="배경화면" width="100%">
 	<form action="#" method="post">
-		<table>
-			<caption style="font-size: 36px;">회원가입</caption>
+		<table style="margin-top: 5%;" class="font">
+			<caption style="font-size: 24px; margin-bottom: 3%;">회원가입</caption>
 			<tr>
-				<th>
-					<label for="ID">사용자 ID*</label>
-				</th>
-				<td>
-					<input type="text" name="ID" id="ID" size="60" maxlength="13" placeholder="사용을 원하시는 아이디를 13자리 이내로 입력하세요." required>
-				</td>
+				<th><label for="ID">사용자 ID*</label></th>
+				<td><input type="text" name="ID" id="ID" size="60" maxlength="13" placeholder="사용을 원하시는 아이디를 13자리 이내로 입력하세요." required></td>
 			</tr>
 			<tr>
-				<th>
-					<label for="PW">사용자 PW*</label>
-				</th>
-				<td>
-					<input type="password" name="PW" id="PW" size="60" minlength="10" placeholder="사용을 원하시는 비밀번호 10자리 이내로 입력하세요." required>
-				</td>
+				<th><label for="PW">사용자 PW*</label></th>
+				<td><input type="password" name="PW" id="PW" size="60" minlength="10" placeholder="사용을 원하시는 비밀번호 10자리 이내로 입력하세요." required></td>
 			</tr>
 			<tr>
-				<th>
-					<label for="PW Confirm">사용자 PW 확인*</label>
-				</th>
-				<td>
-					<input type="password" name="PW Confirm" id="PW Confirm" size="60" minlength="10" placeholder="비밀번호를 다시 입력하세요." required>
-				</td>
+				<th><label for="PW Confirm">사용자 PW 확인*</label></th>
+				<td><input type="password" name="PW Confirm" id="PW Confirm" size="60" minlength="10" placeholder="비밀번호를 다시 입력하세요." required></td>
 			</tr>
 			<tr>
-				<th>
-					<label for="name">성함*</label>
-				</th>
-				<td>
-					<input type="text" name="name" id="name" size="60" placeholder="사용자 이름을 작성하세요." required>
-				</td>
+				<th><label for="name">성함*</label></th>
+				<td><input type="text" name="name" id="name" size="60" placeholder="사용자 이름을 작성하세요." required></td>
 			</tr>
 			<tr>
-				<th>
-					<label for="gender">성별*</label>
-				</th>
+				<th><label for="gender">성별*</label></th>
 				<td>
 					<input type="radio" name="gender" id="male" value="male" required>
 					<label for="male">남자</label>
@@ -62,41 +43,22 @@
 				</td>
 			</tr>
 			<tr>
-				<th>
-					<label for="E-mail">이메일*</label>
-				</th>
-				<td>
-					<input type="email" name="E-mail" id="E-mail" size="60" placeholder="이메일 주소를 입력하세요(@뒤의 주소까지 모두 입력)" required>
-				</td>
+				<th><label for="E-mail">이메일*</label></th>
+				<td><input type="email" name="E-mail" id="E-mail" size="60" placeholder="이메일 주소를 입력하세요(@뒤의 주소까지 모두 입력)" required></td>
 			</tr>
 			<tr>
-				<th>
-					<label for="tel">전화번호</label>
-				</th>
-				<td>
-					<input type="tel" name="tel" id="tel" size="60px" placeholder="전화번호를 입력하세요.">
-				</td>
+				<th><label for="tel">전화번호</label></th>
+				<td><input type="tel" name="tel" id="tel" size="60px" placeholder="전화번호를 입력하세요.(-는 생략)"></td>
 			</tr>
-			<tr>
-				<th>
-					<label for="intro">자기소개</label>
-				</th>
-				<td>
-					<textarea name="intro" id="intro" rows="10" cols="60px" placeholder="사용자 개인정보가 드러나는 내용은 작성하지 마십시오.">[경력사항]</textarea>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" style="text-align: center;">
-					<input type="submit" value="제출" style="background-color: rgb(0, 0, 255, 0.3);">
-					<input type="reset" value="취소" style="background-color: rgb(0, 0, 255, 0.3);">
-				</td>
+			<tr style="border-bottom: 1px solid black;">
+				<th><label for="intro">자기소개</label></th>
+				<td><textarea style="background-color: transparent;" name="intro" id="intro" rows="10" cols="62px" placeholder="사용자 개인정보가 드러나는 내용은 작성하지 마십시오.">[경력사항]</textarea></td>
 			</tr>
 		</table>
-
-
-	
-
-
+		<p style="text-align: center;">
+			<input type="submit" value="제출" style="background-color: rgb(0, 0, 255, 0.3);">
+			<input type="reset" value="취소" style="background-color: rgb(0, 0, 255, 0.3);">
+		</p>
 	</form>
 </body>
 </html>
