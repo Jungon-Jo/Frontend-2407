@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector</title>
+    <style>
+        * {font-family: d2coding;}
+        p, h1, h2 {text-align: center; color: yellowgreen;}
+        #para1 {text-align: center; color: red;}
+        .center {text-align: center; color: red;}
+        div > p {text-align: center; color: blue;}
+    </style>
+    <!--'*'는 모든 경우에 적용한다.-->
+    <!--'>'는 div의 자식만을 의미-->
+    <!--' '(공백)은 div의 모든 자손(자식 포함)들을 포함한다.-->
+</head>
+<body style="margin: 40px;">
+    <h1 id="para1">Red and center-aligned heading</h1>
+    <p>Red and center-aligned heading</p>
+    <p class="center">Red and center-aligned heading</p>
+    <h1>Red and center-aligned heading</h1>
+    <h2>Red and center-aligned heading</h2>
+    <div>
+        <p>Blue and center-aligned paragrahp</p><!--div의 자식-->
+        <section><!--div의 자식-->
+            <p>Red and center-aligned paragraph</p><!--div의 자손-->
+        </section>
+    </div>
+</body>
+</html>
