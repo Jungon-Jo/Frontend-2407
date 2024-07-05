@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <style>
+        .visible {width: 500px; height: 200px; background-color: yellowgreen; overflow: visible;}
+        .hidden {width: 500px; height: 200px; background-color: yellowgreen; overflow: hidden;}
+        .scroll {width: 500px; height: 200px; background-color: yellowgreen; overflow: scroll;}
+        .auto {width: 500px; height: 200px; background-color: yellowgreen; overflow: auto;}
+    </style>
+</head>
+<body style="margin: 40px;">
+    <div class="visible">
+        <h2>Visible</h2>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, 
+        remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker 
+        including versions of Lorem Ipsum.
+    </div>
+    <div class="hidden" style="margin-top: 400px;">
+        <h2>Hidden</h2>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, 
+        remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker 
+        including versions of Lorem Ipsum.
+    </div>
+    <div class="scroll" style="margin-top: 10px;"><!--칸이 충분해도 스크롤이 생긴다.-->
+        <h2>Scroll</h2>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+    </div>
+    <div class="auto" style="margin-top: 10px;">
+        <h2>Auto</h2>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+    </div>
+    <div class="auto" style="margin-top: 10px;">
+        <h2>Auto</h2>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, 
+        remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker 
+        including versions of Lorem Ipsum.
+    </div>
+</body>
+</html>
