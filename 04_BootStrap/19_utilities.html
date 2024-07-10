@@ -17,6 +17,18 @@
 		.grey {
 			background-color: grey;
 		}
+		span.element {
+			width: auto;
+			height: auto;
+			color:white;
+			padding: 10px 5px;
+		}
+
+		h2 {
+			text-align: center;
+			margin-bottom: 10px;
+		}
+
 		</style>
 </head>
 <body>
@@ -63,6 +75,76 @@
 			<span class="rounded-3 grey"></span>
 			<span class="rounded-4 grey"></span>
 			<span class="rounded-5 grey"></span>
+			
+		<h2 class="mt-3">Float</h2>
+		<div class="clearifx">
+			<span class="float-start border border-2 border-danger element">Float left</span>
+			<span class="float-end border border-2 border-danger element">Float right</span>
+		</div><br><br><br>
+		<h2 class="mt-3 center">Center Align</h2>
+		<div class="mx-auto bg-warning" style="width: 150px;">
+			Centered
+		</div><br><br>
+
+		<h2>Width</h2>
+		<div class="w-25 bg-warning">Width 25%</div>
+		<div class="w-50 bg-warning">Width 50%</div>
+		<div class="w-75 bg-warning">Width 75%</div>
+		<div class="w-100 bg-warning">Width 100%</div>
+		<div class="w-auto bg-warning">Auto Width</div>
+		<div class="mw-100 bg-warning">Max Width 100%</div>
+		<br><br>
+
+		<h2>Height</h2>
+		<div style="height:200px;background-color:#ddd">
+			<div class="h-25 d-inline-block p-2 bg-warning">Height 25%</div>
+			<div class="h-50 d-inline-block p-2 bg-warning">Height 50%</div>
+			<div class="h-75 d-inline-block p-2 bg-warning">Height 75%</div>
+			<div class="h-100 d-inline-block p-2 bg-warning">Height 100%</div>
+			<div class="h-auto d-inline-block p-2 bg-warning">Auto Height</div>
+			<div class="mh-100 d-inline-block p-2 bg-warning" style="height:500px">Max Height 100%</div>
+		</div><br><br>
+
+		<h2>Spacing</h2>
+		<div class="pt-4 bg-warning">I only have a top padding (1.5rem)</div>
+		<div class="p-5 bg-success">I have a padding on all sides (3rem)</div>
+		<div class="m-5 pb-5 bg-info">I have a margin on all sides (3rem) and a bottom padding (3rem)</div><br><br>
+		<h2>Shadow</h2>
+		<div class="shadow-none p-4 mb-4 bg-light">No shadow</div>
+		<div class="shadow-sm p-4 mb-4 bg-white">Small shadow</div>
+		<div class="shadow p-4 mb-4 bg-white">Default shadow</div>
+		<div class="shadow-lg p-4 mb-4 bg-white">Large shadow</div><br><br>
+
+		<h2>Aspect Ratio</h2>
+			<div class="row">
+				<div class="col">
+					<div class="ratio ratio-1x1">
+						<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+					</div>
+				</div>
+				<div class="col">
+					<div class="ratio ratio-4x3">
+						<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+					</div>
+				</div>
+				<div class="col">
+					<div class="ratio ratio-16x9">
+						<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+					</div>
+				</div>
+				<div class="col">
+					<div class="ratio ratio-21x9">
+						<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+					</div>
+				</div>
+		</div><br><br>
+
+		<h2>Visibiliyt</h2>
+		<div class="visible" style="text-align: center;">I am visible</div>
+		<div class="invisible" style="text-align: center;">I am invisible</div>
+		<div class="visible" style="text-align: center;">I am visible</div>
+		<div class="d-none" style="text-align: center;">I am display none</div><!--글자가 들어갈 공간까지 날려버린다.-->
+		<div class="visible" style="text-align: center;">I am visible</div>
 	</div>
 </body>
 </html>
