@@ -41,6 +41,7 @@ console.log(a + b, a - b, a * b, a / b, b % a);
 let pi = 0.314159e1;      //0.314159 x 10 ** 1(**제곱을 의미한다.)
 let f = 1.3e-8;       //1.3 x 10 ** -8
 console.log(pi, f);
+console.log(2 ** 10, 2 ** 20, 2 ** 30);     // 1 Kb, 1 Mb, 1 Gb
 //b를 a로 나눈 나머지(b % a)
 
 //3. 논리형(Boolean) - true, false
@@ -57,3 +58,5 @@ console.log(x > 0 && x < 8);
 
 //자료형 검사
 console.log(typeof hello, typeof(a), typeof(true), typeof(d));
+
+let y = a + -b;     // + : binary operator, - : unary operator
