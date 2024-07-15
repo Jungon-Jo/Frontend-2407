@@ -42,3 +42,18 @@ let pi = 0.314159e1;      //0.314159 x 10 ** 1(**제곱을 의미한다.)
 let f = 1.3e-8;       //1.3 x 10 ** -8
 console.log(pi, f);
 //b를 a로 나눈 나머지(b % a)
+
+//3. 논리형(Boolean) - true, false
+
+//비교 연산
+console.log(a>b, 10 === 10.0); // = = = : 타입과 값이 같을 때 참, 자바스크립트에서는 숫자를 number 하나로 입력
+console.log(10 == '10', 10 === '10'); // true, false
+//!true, !false = false, true 로 표현
+
+//논리 연산
+let x = 10;
+console.log(x > 8 || x < 0);
+console.log(x > 0 && x < 8);
+
+//자료형 검사
+console.log(typeof hello, typeof(a), typeof(true), typeof(d));
