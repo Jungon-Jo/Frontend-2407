@@ -21,5 +21,24 @@ console.log(hello, hello[0], hello[3])
 //안녕하세요?에서 첫번째[0]문자와 네번째[3]를 표현한다.
 
 //문자열 길이
-console.log(hello.length)
-//.다음 method나 attribute를 선택할 수 있으며, method의 경우 괄호를 사용해야한다.
+console.log(hello.length, hello.charAt(0), hello.charAt(3))
+//"문자열" + "." = method나 attribute(속성)을 사용 할 수 있으며, method의 경우 괄호를 사용해야한다.
+
+//한 문장 내 '나 "중 하나를 두번 사용하면 erro가 난다.
+//상단의 값 모두 표현이 안된다.
+//console.log('He said 'I love you.'')
+console.log('He said "I love you."')
+let d = "this is 'string'";
+
+//template literal
+console.log(hello + '문자열의 길이는' + hello.length + '입니다.');
+console.log(`${hello} 문자열의 길이는 ${hello.length} 입니다.`);
+
+//2. 숫자(Number)
+//자바스크립트에서는 정수형(integer), 실수형(floting point)을 구분하지 않는다.
+let a = 3, b = 4;
+console.log(a + b, a - b, a * b, a / b, b % a);
+let pi = 0.314159e1;      //0.314159 x 10 ** 1(**제곱을 의미한다.)
+let f = 1.3e-8;       //1.3 x 10 ** -8
+console.log(pi, f);
+//b를 a로 나눈 나머지(b % a)
