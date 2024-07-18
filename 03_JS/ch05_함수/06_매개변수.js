@@ -27,3 +27,10 @@ function printFruit4(name, count = 0) {
 }
 printFruit4('복숭아', 3);
 printFruit4('복숭아');
+
+// 가변 매개변수
+function sample(x, ...items) {         // items는 함수 안에서 배열처럼 사용 가능
+  console.log(x, items);
+}
+sample(1, 2);
+sample(1, 2, 3, 4);
