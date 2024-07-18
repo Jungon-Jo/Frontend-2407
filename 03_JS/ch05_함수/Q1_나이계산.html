@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculate Age</title>
+  <script>
+    const today = new Date();
+    let bYear = 0; document.getElementById(bY)
+    let bMonth = 0; document.getElementById(bM)
+    let bDay = 0; document.getElementById(bD)
+    let age = 0
+    let tYear = today.getFullYear();
+    let tMonth = today.getMonth() + 1;
+    let tDay = today.getDay();
+    if (tMonth < bMonth)
+        age = tYear - bYear - 1;
+    else if (tMonth > bMonth)
+        age = tYear - bYear;
+    else {
+        if (tDay >= bDay)
+            age = tYear - bYear
+        else
+            age = tYear - bYear -1;
+    }
+    
+    function calculateAge() {
+      let result = console.log(`생일: ${bYear}-${bMonth}-${bDay}, 나이: ${age}`); document.getElementById('result').innerHTML = '<strong>' + result + '</strong>';
+    }
+  </script>
+</head>
+<body style="margin: 40px;">
+  <h3>Your Age</h3>
+  <hr>
+  <p>Enter your born date.</p>
+  <input type="text" id="bY" placeholder="Year">
+  <input type="text" id="bM" placeholder="Month">
+  <input type="text" id="bD" placeholder="Day">
+  <button onclick=""></button>
+  <div id="result"></div>
+</body>
+</html>
