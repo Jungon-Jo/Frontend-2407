@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function isPrimeNumbers(num) {
+      let sqrtNum = Math.floor(Math.sqrt(num));
+      for (let i = 2; i < sqrtNum; i++) {
+        if (num % i == 0)
+          return false;
+      }
+      return true
+    }
+    function checkPrimeNumbers() {
+      let num = parseInt(document.getElementById('num').value);
+      let result = isPrimeNumbers(num) ? '소수 입니다.' : '소수가 아닙니다.';
+      document.getElementById('result').innerHTML = '<strong>' + result + '</strong>';
+    }
+  </script>
+  <title>소수</title>
+</head>
+<body style="margin: 40px;">
+  <h3>소수 확인</h3>
+  <hr>
+  <input type="text" id="num" placeholder="확인할 숫자를 입력하세요.">
+  <button onclick="checkPrimeNumbers()">확인</button>
+  <hr>
+  <div id="result"></div>
+</body>
+</html>
