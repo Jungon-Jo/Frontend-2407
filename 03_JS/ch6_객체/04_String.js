@@ -38,4 +38,15 @@ console.log(space.trim());
 console.log(space.trim().substring(0,5).toUpperCase());
 
 // 문자열 변환
-let sampe = 'A quikc brown fox';
+let sample = 'A quick brown fox';
+console.log(sample.replace('A', 'The'))
+console.log(sample.replace('o', '0'))       // 앞에 하나만 바뀐다.
+
+// 정규표현식(Regular Expression)
+sample = 'A quick brown fox - 3 - 갈색의 재빠른 여우 the lazy dog = 5 = 개으른 개';
+// 영문자와 공백만 남기고 모두 지움
+console.log(sample.replace(/[^A-Z a-z]/g, ''));    // ^는 해당 내용을 제외하고라는 의미가 있음
+// 한글과 공백만 남기고 모두 지움
+console.log(sample.replace(/[^가-힣 ㄱ-ㅎ ㅏ-ㅣ]/g, ''));
+// 숫자만 남기고 모두 지움
+console.log(sample.replace(/[^0-9-=]/g, ''));
