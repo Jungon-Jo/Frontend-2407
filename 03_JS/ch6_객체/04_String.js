@@ -1,4 +1,4 @@
-// String 객체
+// String 객체(Method 정도는 기억해주는게 좋다)
 
 let hello = '안녕하세요?';
 
@@ -11,3 +11,31 @@ console.log(hello + '여러분!', hello.concat('여러분!'));
 console.log(hello.indexOf('세요'), hello.indexOf('가'));    // 3, -1 동일 문자가 있을 경우 1이상의 정수, 없을 경우 0 또는 -1 이 표시된다.
 console.log(hello.includes('세요'))
 console.log('pineapple'.lastIndexOf('p'))
+
+// 문자열을 분리하여 배열을 생성
+let fruits = '수박 참외 포도';
+let fruitArray = fruits.split(' ');
+console.log(fruitArray);              // ['수박', '참외', '포도']
+
+// 문자열 일부분(substring)
+let today = new Date().toISOString(); // 2024-07-19T02:13:13.757Z
+console.log(today);
+
+// 날짜 추출 - 2024-07-19
+console.log(today.substring(0, 10))       // substring(시작하는것은 포함(>=), 마지막은 미포함(<))
+
+// 시간 추출 - 02:13:13
+console.log(today.substring(11, 19))      // 11에서 출발해 8글자를 읽는다.
+console.log(new Date().toLocaleString()); // 2024. 7. 19. 오전 11:21:11
+console.log(new Date().toLocaleString().substring(16));     // 인덱스 16부터 끝까지
+
+// 공백 제거
+let space = ' Hello?    World.  \r\n';    // 양쪽의 White space: 공백, 탭, \r, \n
+console.log(space)
+console.log(space.trim());
+
+// Method chaining
+console.log(space.trim().substring(0,5).toUpperCase());
+
+// 문자열 변환
+let sampe = 'A quikc brown fox';
