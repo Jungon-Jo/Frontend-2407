@@ -18,8 +18,15 @@ const pet = {
 }
 
 console.log(pet.name);        // 개체의 속성을 사용
-pet.eat();                    // 객체의 method를 사용
+pet.eat('간식');                    // 객체의 method를 사용
 
 // 객체에 대한 접근
-console.log(personObject.job)
-console.log(personObject['job'])
+console.log(personObject.job)       // 이렇게 사용하는 것이 일반적
+console.log(personObject['job'])    // 이런식으로는 사용하지 않음  
+let key = 'job';
+console.log(personObject[key]);     // key 값을 변수로 사용하는 경우
+
+// 배열은 객체의 특수한 형태
+console.log(typeof personArray);
+let fruitArray = ['감', '밤', '배'];
+let fruitObject = {0: '감', 1: '밤', 2: '배'}
