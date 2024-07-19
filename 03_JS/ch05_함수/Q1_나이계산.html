@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculate Age</title>
   <script>
+    function getAge() {
     const today = new Date();
-    let bYear = 0; document.getElementById(bY)
-    let bMonth = 0; document.getElementById(bM)
-    let bDay = 0; document.getElementById(bD)
     let age = 0
     let tYear = today.getFullYear();
     let tMonth = today.getMonth() + 1;
@@ -23,8 +21,12 @@
         else
             age = tYear - bYear -1;
     }
-    
+    return age
+    }
     function calculateAge() {
+      let bYear = 0; document.getElementById(bY)
+      let bMonth = 0; document.getElementById(bM)
+      let bDay = 0; document.getElementById(bD)
       let result = console.log(`생일: ${bYear}-${bMonth}-${bDay}, 나이: ${age}`); document.getElementById('result').innerHTML = '<strong>' + result + '</strong>';
     }
   </script>
