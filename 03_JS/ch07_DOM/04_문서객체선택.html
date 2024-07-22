@@ -4,8 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>문서객체 선택</title>
+  <script>
+    function handler() {
+      // 첫번째 h1 태그 배경색을 yellow
+      document.querySelector('h1').style.backgroundColor = 'yellow';       
+
+      // 모든 태그 글자색 red, querySelectorAll은 Array를 만들어 줘야한다.(여러개가 선택되면 array를 사용해야한다./querySelectorAll)
+      let h1Array = document.querySelectorAll('h1');        
+      for (let h1 of h1Array)
+        h1.style.color = 'red';
+        // h1.style.fontSize = '2rem'을 사용해도 되지만, 자기 부모한테 직접 요청이 좋다.
+
+      // class가 header1인 요소의 배경색을 aqua로
+      let header1Array = document.querySelectorAll('.header1');
+      for (let h1 of header1Array)
+        h1.style.backgroundColor = 'aqua';
+
+      // id가 header1인 요소의 텍스트를 from Javascript로 변경
+      document.querySelector('#header1').innerHTML = 'From Javascript'
+
+      let header1Array2 = document.querySelectorAll('#header1')
+      for (let h1 of header1Array2)
+        h1.style.backgroundColor = 'green'
+
+      // 모든 font size를 2배로 변경
+      document.body.style.fontSize = '2rem';
+    }
+  </script>
 </head>
-<body>
-  
+<body style="margin: 40px;">
+  <h1>Header No.1</h1>
+  <h1 class="header1">Header No.2</h1>
+  <h1 id="header1">Header No.3</h1>
+  <h1 class="header1">Header No.4</h1>
+  <button onclick="handler()">실행</button>
 </body>
 </html>
