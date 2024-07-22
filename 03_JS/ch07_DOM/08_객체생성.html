@@ -11,6 +11,13 @@
     .class2 {
       background-color: beige;
     }
+    .class3 {
+      width: 320px;
+      height: 160px;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 20px
+    }
   </style>
   <script>
     function addNode() {
@@ -20,17 +27,41 @@
       // document.querySelector('#point').prepend(h3);       // prepend, <div id="point"> 앞에 추가
       document.querySelector('#point').append(h3);       // append, </div> 앞에 추가
     }
+    function addNode2() {
+      const h3 = document.createElement('h3')
+      h3.classList.add('class1', 'class2');
+      h3.innerHTML = '홍길동';
+      document.querySelector('#point').prepend(h3)
+    }
     function removeNode() {
-
+      const h3 = document.querySelector('.class1.class2')
+      document.querySelector('#point').removeChild(h3);
+    }
+    function addPicture() {
+      const img = document.createElement('img');
+      img.classList.add('class3');
+      img.src = 'https://picsum.photos/200/300';
+      document.querySelector('#point').append(img)
+    }
+    function remvoePicture() {
+      const img = document.querySelector('.class3')
+      document.querySelector('#point').removeChild(img)
     }
   </script>
 </head>
 <body style="margin: 40px;">
   <h3>당신의 이름은 무엇입니까?</h3>
-  <button onclick="addNode()">추가</button>
+  <button onclick="addNode2()">앞에 추가</button>
+  <button onclick="addNode()">뒤에 추가</button>
   <button onclick="removeNode()">삭제</button>
+  <button onclick="addPicture()">사진 추가</button>
+  <button onclick="remvoePicture()">사진 제거</button>
+  <hr>
   <div id="point">
     A quick brown fox jumps over the lazy dog.
+  </div>
+  <div id="image">
+    show image
   </div>
 </body>
 </html>
