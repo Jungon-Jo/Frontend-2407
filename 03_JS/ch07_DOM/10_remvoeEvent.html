@@ -4,8 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Remove Event</title>
+  <style>
+    h1 {
+      user-select: none;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      let counter = 0
+      let isConnected = false;
+
+      const h1 = document.querySelector('h1')
+      const p = document.querySelector('p')
+      const connectButton = document.querySelector('#connect')
+      const disconnectButton = document.querySelector('#disconnect');
+
+      const listener = (event) => {
+        h1.innerText = `click: ${++counter}`
+      }
+
+      connectButton.addEventListener('click', () => {
+        if(isConnected == false) {
+          h1.addEventListener('click', listener);
+          p.innerText = 'Status of connection: Connect';
+          isConnected = true;
+        }
+      });
+      
+      disconnectButton.addEventListener('click', () => {
+        if (isConnected == true) {
+          h1.removeEventListener('click', listener);
+          p.innerText = 'Status of connection: Disconnect';
+          isConnected = false;
+        }
+      });
+    }
+  </script>
 </head>
 <body>
-  
+  <h1>click: 0</h1>
+  <button id="connect">Connect Event</button>
+  <button id="disconnect">Disconnect Event</button>
+  <p>Status of connection: Disconnect</p>
 </body>
 </html>
