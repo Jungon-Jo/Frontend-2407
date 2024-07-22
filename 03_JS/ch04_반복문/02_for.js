@@ -69,3 +69,12 @@ for (i = 100; 100 <= i <=200; i += 5) {
   sum5 += i
 }
 console.log(`100에서 200사이의 5의 배수의 합 = ${sum5}`)
+
+// 하루는 몇분이냐?
+let sumMinute = 0;
+for (let hour = 0; hour <= 23; hour++) {
+  for (let minute = 0; minute <= 59; minute++) {
+    sumMinute++;
+  }
+}
+console.log(sumMinute)
