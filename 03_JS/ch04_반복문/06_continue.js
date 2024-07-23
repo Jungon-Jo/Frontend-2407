@@ -14,5 +14,12 @@ for (let i = 1; i <= 10; i++) {
 }
 console.log(sumOdd)
 
-sumOdd = 0
-for (let i = 1; i)
+for (let i = 1; i <= 5; i++) {
+    let line = '';
+    for (let k = 1; k <= 5; k++) {
+        if (k == i)
+            continue;
+        line += k + ' ';
+    }
+    console.log(line);
+}
