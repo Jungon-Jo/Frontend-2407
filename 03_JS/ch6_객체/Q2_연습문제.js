@@ -46,11 +46,11 @@ for (let i = 100; i <= 999; i++) {
 }
 console.log(`${max1} x ${max2} = ${maxPal}`)
 
-// 4. 다음 문장에서 the 단어는 몇번 사용되었는가?
+// 4. 다음 문장에서 the 단어는 몇번 사용되었는가?(가장 많이 사용될 객체)
 let sample = "the grown-ups' response, this time, was to advise me to lay aside my drawings of boa constrictors, whether from the inside or the outside, and devote myself instead to geography, history, arithmetic, and grammar. That is why, at the, age of six, I gave up what might have been a magnificent career as a painter. I had been disheartened by the failure of my Drawing Number One and my Drawing Number Two. Grown-ups never understand anything by themselves, and it is tiresome for children to be always and forever explaining things to the.";
 let cleanStr = sample.replace(/[-',.]/g, '').toLowerCase();
 console.log(cleanStr)
-// 배열을 arr로 만든 후, 배열의 원소가 the 면 카운트 값을 증가시킴
+// 배열을 arr로 만든 후, 배열의 원소가 the 면 카운트 값을 증가시킴(반복문을 만드는 이유는 )
 let strArr = cleanStr.split(' ');
 let count = 0;
 for (let word of strArr) {
