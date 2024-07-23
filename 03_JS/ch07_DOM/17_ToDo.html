@@ -58,10 +58,12 @@
 
             const removeTodo = key => {
                 const item = document.querySelector(`[data-key="${key}"]`);
+                // 속성값이라함은 id, class 같은걸 의미하는지? 그리고 속성값 설정이 data-key=${key}값으로 설정되는지?
+                // const는 상수값인데 앞서 item 값이 선언되었는데 다시 선언된점, removeTodo 함수 내 item과 위의 item은 다른 상수값으로 봐야하는가?
                 todoList.removeChild(item);
             }
 
-            // 이벤트 연걸
+            // 이벤트 연결
             addButton.addEventListener('click', addTodo);
             input.addEventListener('keyup', e => {
                 if (e.code === 'Enter')                 // (e.keyCode == 13)
