@@ -4,28 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>디지털 시계 (그래픽 버전)</title>
+  <style>
+    img {
+      width: 100px
+    }
+  </style>
   <script>
-        function twoDigit(num) {
+    function twoDigit(num) {
       return num < 10 ? '0' + num : String(num);  // 4 --> 04, 15 --> 15
     }
     function myDate(now) {
       const week = '일월화수목금토'.split('')
-      return `${now.getFullYear()}-${twoDigit(now.getMonth() + 1)}-${towDigit(now.getDate())}(${week[day]})`
+      return `${now.getFullYear()}-${twoDigit(now.getMonth() + 1)}-${twoDigit(now.getDate())}(${week[now.getDay() % 7]})`
+    }
+    function myTime(now) {
+      return `${twoDigit(now.getHours())}:${twoDigit(now.getMinutes())}:${twoDigit(now.getSeconds())}`;
     }
     window.onload = () => {
-      let dateStr = myDate(new Date());
-      document.getElementById('myDate').innerHTML = dateStr
-      const year = now.getFullYear();
-      const month = now.getMonth() + 1;
-      const date = now.getDate();
-      const day = now.getDay();   // 0~6, 일~토
-
-      let now = new Date();
-      let hour = now.getHours();
-      let minute = now.getMinutes();
-      let second = now.getSeconds();
-      let timeStr = `${twoDigit(hour)}:${twoDigit(minute)}:${twoDigit(second)}`;
-      document.getElementById('time').innerHTML = timeStr
+      setInterval(() => {
+        let dateStr = myDate(new Date());
+        document.getElementById('myDate').innerHTML = dateStr;
+  
+        let now = new Date();
+        let timeStr = myTime(now)
+        // document.getElementById('time').innerHTML = timeStr
+        document.getElementById('h1').src = `../../00_material/01_img/img/${timeStr[0]}.svg`
+        document.getElementById('h2').src = `../../00_material/01_img/img/${timeStr[1]}.svg`
+        document.getElementById('m1').src = `../../00_material/01_img/img/${timeStr[3]}.svg`
+        document.getElementById('m2').src = `../../00_material/01_img/img/${timeStr[4]}.svg`
+        document.getElementById('s1').src = `../../00_material/01_img/img/${timeStr[6]}.svg`
+        document.getElementById('s2').src = `../../00_material/01_img/img/${timeStr[7]}.svg`
+      }, 1000);
     }
 
   </script>
@@ -33,8 +42,8 @@
 <body style="margin: 40px;">
     <h1 id="date"></h1>
     <h1 id="myDate"></h1>
-    <hr>
-    <h1 id="time"></h1>
+    <hr><br>
+    <!-- <h1 id="time"></h1> -->
     <img id="h1">
     <img id="h2">
     <img src="../../00_material/01_img/img/Colon.jpg">
