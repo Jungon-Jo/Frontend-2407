@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>디지털 시계 (그래픽 버전)</title>
+  <script>
+        function twoDigit(num) {
+      return num < 10 ? '0' + num : String(num);  // 4 --> 04, 15 --> 15
+    }
+    function myDate(now) {
+      const week = '일월화수목금토'.split('')
+      return `${now.getFullYear()}-${twoDigit(now.getMonth() + 1)}-${towDigit(now.getDate())}(${week[day]})`
+    }
+    window.onload = () => {
+      let dateStr = myDate(new Date());
+      document.getElementById('myDate').innerHTML = dateStr
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const date = now.getDate();
+      const day = now.getDay();   // 0~6, 일~토
+
+      let now = new Date();
+      let hour = now.getHours();
+      let minute = now.getMinutes();
+      let second = now.getSeconds();
+      let timeStr = `${twoDigit(hour)}:${twoDigit(minute)}:${twoDigit(second)}`;
+      document.getElementById('time').innerHTML = timeStr
+    }
+
+  </script>
+</head>
+<body style="margin: 40px;">
+    <h1 id="date"></h1>
+    <h1 id="myDate"></h1>
+    <hr>
+    <h1 id="time"></h1>
+    <img id="h1">
+    <img id="h2">
+    <img src="../../00_material/01_img/img/Colon.jpg">
+    <img id="m1">
+    <img id="m2">
+    <img src="../../00_material/01_img/img/Colon.jpg">
+    <img id="s1">
+    <img id="s2">
+</body>
+</html>
