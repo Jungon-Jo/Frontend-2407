@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyup 이벤트</title>
+    <script>
+        window.onload = () => {
+            const h1 = document.querySelector('h1');
+            const textarea = document.querySelector('textarea');
+
+            textarea.addEventListener('keyup', (event) => {         // 키보드 event는 "event"를 써줘야 한다.(무슨 키가 눌렸는지 알아야 하기 때문이다.)
+                const length = textarea.value.length;
+                h1.innerHTML = `입력한 글자수: ${length}`;
+            })
+        }
+    </script>
+</head>
+<body style='margin: 40px;'>
+    <h1></h1>
+    <textarea></textarea>
+</body>
+</html>
