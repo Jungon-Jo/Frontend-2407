@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Star</title>
+    <script>
+        window.onload = () => {
+            // 별의 초기 설정
+            const star = document.querySelector('h1');
+            star.style.position = 'absolute';
+
+            // 별의 이동을 출력하는 기능
+            let [x, y] = [0, 0];
+            const block = 50;
+            const print = () => {
+                star.style.left = `${x * block}px`;
+                star.style.right = `${x * block}px`;
+                star.style.top = `${y * block}px`;
+                star.style.bottom = `${y * block}px`;
+            }
+            print();
+
+            // 별을 이동하는 기능
+            const [left, up, right, down] = [37, 38, 39, 40]
+            document.body.addEventListener('keydown', event => {
+                switch(event.keyCode) {
+                case 104:
+                case left:
+                    x--; break;
+                case up:
+                    y--; break;
+                case right:
+                    x++; break;
+                case down:
+                    y++; break;
+                }
+                print();
+            })
+
+        }
+    </script>
+</head>
+<body>
+    <h1>★</h1>
+</body>
+</html>

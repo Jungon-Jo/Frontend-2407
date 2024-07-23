@@ -14,14 +14,24 @@
         window.onload = () => {
             const input1 = document.getElementById('input1');
             const input2 = document.getElementById('input2');
+            const button = document.querySelector('button')
+            const result = document.getElementById('result')
 
             input1.onkeyup = () => {
                 if (input1.value.length >= 6)
                     input2.focus();
             }
-            input2.onkeyup = e => {
-                if (e.keyCode == 8 && input2.value.length == 0)             // 입력한 글자가 없고, Backspace를 입력
+            input2.onkeyup = e => {             // 함수값이지만 parameter가 하나임으로 "()" 생략된 경우
+                // if (e.keyCode == 8 && input2.value.length == 0)             // 입력한 글자가 없고, Backspace를 입력
+                if (e.code === 'Backspace' && input2.value.length == 0)
                     input1.focus();
+                if (e.keyCode == 13) {              // "if (e.code === 'Enter') {" 를 사용해도 된다.
+                    let resultStr = `${input1.value}-${input2.value}`;
+                    result.innerHTML = resultStr
+                }
+            }
+            button.onclick = () => {
+                print();
             }
         }
     </script>
@@ -31,6 +41,7 @@
     <input id="input1" type="text" maxlength="6" autofocus>
     <span>-</span>
     <input id="input2" type="text" maxlength="7">
-    
+    <button>확인</button>
+    <div id="result"></div>
 </body>
 </html>
