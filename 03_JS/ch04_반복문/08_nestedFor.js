@@ -16,3 +16,32 @@ for (let hour = 0; hour <= 23; hour++) {
       console.log(`${hour}:${minute}`);
   }
 }
+
+// 3. 별을 대각선 모양으로 그리기 (다이아몬드 1시분면)
+for (let i = 0; i < 5; i++) {
+  let line = '';
+  for (let k = 0; k < i; k++) {
+    line += '*'
+  }
+  console.log(line)
+}
+
+// 4. 다이아몬드 4분면
+for (let i = 5; i > 0; i--) {
+  let line = '';
+  for (let k = 0; k < i; k++) {
+    line += '*';
+  }
+  console.log(line)
+}
+
+// 5. 주사위 눈으로 6 x 6 배열 만들기
+let diceArray = []
+for (let i = 0; i < 6; i++) {
+  let line = [];
+  for (let k = 0; k < 6; k++) {
+    line.push(Math.ceil(Math.random() * 6));
+  }
+  diceArray.push(line);
+}
+console.log(diceArray)
