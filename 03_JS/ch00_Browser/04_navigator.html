@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigator</title>
+    <script>
+        window.onload = () => {
+            let attr = `appCodeName: ${navigator.appCodeName}<br>`
+            attr += `appName: ${navigator.appName}<br>`
+            attr += `appVersion: ${navigator.appVersion}<br>`
+            attr += `platform: ${navigator.platform}<br>`
+            attr += `userAgent: ${navigator.userAgent}<br>`
+            document.querySelector('h3').innerHTML = attr
+            // 중요한것은 userAgent값이다.
+            // 로봇이 아닌 사람이 접속했다는 정보를 주기위해 userAgent값을 넣어준다.
+        }
+    </script>
+</head>
+<body style="margin: 40px;">
+    <h3></h3>
+</body>
+</html>
