@@ -13,11 +13,11 @@
   </style>
   <script>
     function twoDigit(num) {
-      return num < 10 ? '0' + num : String(num);  // 4 --> 04, 15 --> 15
+      return num < 10 ? '0' + num : num.toString();  // 4 --> 04, 15 --> 15
     }
     function displayTime(num) {
       let hour = parseInt(num/360000)
-      let min = parseInt(num/6000)
+      let min = parseInt((num % 360000) / 6000);
       let sec = parseInt(num/100) % 60
       return twoDigit(hour) + ':' + twoDigit(min) + ':' + twoDigit(sec) + '.' + twoDigit(num % 100)
     }
@@ -32,7 +32,7 @@
       start.onclick = () => {
         si = setInterval(() => {
           count++;
-          display.innerHTML = displayTime(count);
+          display.innerHTML = displayTime(count); 
         }, 10);
       }
       stop.onclick = () => {
