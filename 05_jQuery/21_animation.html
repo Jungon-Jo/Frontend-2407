@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery 맛보기</title>
+    <title>Frame Animation</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
-        // window.onload = (() => {
-
-        // })
         $(document).ready(() => {
-            $('h1').text('jQuery가 생성').css('color', 'red');
-        });
+            let frames = [];
+            for (let i = 0; i <= 14; i++)
+                frames.push(`../00_material/01_img/human/${i}.png`);
+
+            let count = 0;
+            setInterval(() => {
+                $('#image').attr('src', frames[count++ % frames.length])
+            }, 1000/25);        // 30 frame per second(FPS)
+        })
     </script>
 </head>
 <body style="margin: 40px;">
-    <h1></h1>
+    <img id="image">
+    
 </body>
 </html>
