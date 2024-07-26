@@ -4,19 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>할일 목록(To Do)</title>
-    <style>
-        input, button, div {
-            padding: 5px;
-            margin: 5px;
-        }
-    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(() => {
             const input = $('#todo')
             const addButton = $('#add-button')
             const todoList = $('#todo-list')
-
-            let keyCount = 0;
 
             const addTodo = () => {
                 const todoText = input.val().trim();
@@ -24,10 +17,13 @@
                     alert('옳바르게 할 일을 입력하세요.');
                     return;
                 }
+            }
 
-                $('#add-button').click(() => {
+            $('#add-button').click(() => {
+                let key = 0
+                for (let key = 0; key >= 0; key++) {
                     $('<div></div>')
-                        .attr({dataKey: 'key'})
+                        .attr({id: `div${key}`})
                         .appendTo('#todo-list')
                     $('<input>')
                         .attr('type', 'checkbox')
@@ -38,23 +34,29 @@
                     $('<button></button>')
                         .text('제거하기')
                         .click(() => {
-                            $('div').remove('#key')
+                            $('div').remove(`div${key}`)
                         })
                         .appendTo('#todo-list')
+                    return;
+                }
 
-                    const key = keyCount++
 
-                    $('input').text('')
-                })
-
-                $('#todo')
-                .on('keyup', (e) => {
-                    if (e.key === 'Enter')
-                        addTodo();
-                })
-            }
+                    $('#todo').text('')
+            })
+                
+            $('#todo')
+            .on('keyup', (e) => {
+                if (e.key === 'Enter')
+                    addTodo();
+            })
         })
     </script>
+    <style>
+        input, button, div {
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
 </head>
 <body style="margin: 40px;">
     <h1>할 일 목록</h1>
