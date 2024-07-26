@@ -30,3 +30,37 @@ console.log(personObject[key]);     // key 값을 변수로 사용하는 경우
 console.log(typeof personArray);
 let fruitArray = ['감', '밤', '배'];
 let fruitObject = {0: '감', 1: '밤', 2: '배'}
+
+let obj = {
+  cat: "meow",
+  dog: "woof"
+};
+
+function animal(obj, property) {
+  return obj[property]
+}
+console.log(animal)
+
+var arr = [ '1', 2, 'Hello' ]; // 선언과 동시에 할당
+console.log(arr[2])
+var arr = [];
+arr[0] = 'zero';
+arr[1] = 'one'; // 빈 배열을 생성후 할당
+console.log(arr)
+var arr = new Array(); // 빈 배열을 생성후 할당
+arr[0] = 1;
+arr[2] = 2;
+arr[1] = 3;
+console.log(arr)
+var arr = new Array( 'a', 'b', 'c', 'd' ); // 선언과 동시에 할당
+console.log(arr)
+
+let obj1 = new Object('홍길동');
+console.log(obj1);
+
+let obj2 = {
+  name: '홍길동',
+  age: 20,
+  country : '조선'
+};
+console.log(Object.values(obj2));
