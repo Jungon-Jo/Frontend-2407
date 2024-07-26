@@ -64,3 +64,11 @@ let obj2 = {
   country : '조선'
 };
 console.log(Object.values(obj2));
+
+let obj3 = {
+  name: '홍길동'
+}
+console.log(obj3)
+obj3.age = 23
+obj3['country'] = '조선'
+console.log(obj3)
