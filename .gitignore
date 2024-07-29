@@ -1,0 +1,5 @@
+# Key file이 올라가지 않도록 방지
+00_key.js
+
+#directory를 못올리게 하려면
+dir/
