@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="00_key.js"></script>
+    <script>
+
+        function handleMap() {
+            const inputPlace = document.getElementById('inputPlace').value
+            document.getElementById('place').innerHTML = inputPlace
+        }
+    </script>
+</head>
+<body>
+    <h1>행안부 도로명주소 API</h1>
+    <hr>
+    <input type="text" id="inputPlace" placeholder="임의의 장소를 입력하세요.">
+    <button onclick="handleMap()">지도 그리기</button>
+    <h3 id="place"></h3>
+    <ul>
+        <li>도로명주소: <span id="roadAddr"></span></li>
+        <li>위도: <span id="lat"></span></li>
+        <li>경도: <span id="lon"></span></li>
+    </ul>
+    <div id="map" style="width:600px;height:400px; margin-top: 20px;"></div>
+</body>
+</html>
