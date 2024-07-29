@@ -6,17 +6,19 @@
     <title>Document</title>
     <script src="00_key.js"></script>
     <script>
-
-        function handleMap() {
-            const inputPlace = document.getElementById('inputPlace').value
-            document.getElementById('place').innerHTML = inputPlace
+        window.onload = () => {
+            const handleMap = () => {
+                let search = document.getElementById('inputPlace')
+                document.getElementById('place').innerHTML = search
+            }
+            console.log(handleMap)
         }
     </script>
 </head>
 <body>
     <h1>행안부 도로명주소 API</h1>
     <hr>
-    <input type="text" id="inputPlace" placeholder="임의의 장소를 입력하세요.">
+    <input onchange="handleMap()" type="text" id="inputPlace" placeholder="임의의 장소를 입력하세요.">
     <button onclick="handleMap()">지도 그리기</button>
     <h3 id="place"></h3>
     <ul>
