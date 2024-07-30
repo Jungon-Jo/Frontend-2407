@@ -6,22 +6,91 @@
     <title>여러곳 입력받아 지도에 표시하기</title>
     <script src="00_key.js"></script>
     <script>
-        const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
-        const kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
-        const params1 = 'currentPage=1&countPerPage=5';
-        const params3 = `confmKey=${roadAddKey}&resultType=json`;
-        
-        window.onload = () => {
+    
+    const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
+    const kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
+    const params1 = 'currentPage=1&countPerPage=5';
+    const params3 = `confmKey=${roadAddKey}&resultType=json`;
+    let placeArr = [];
+    
+    async function handleMaps() {
+        placeArr = [];
+        let sum = 0;
+        for (let i = 1; i <= 5; i++) {
+            sum += i
+            const places = document.getElementById(`input${sum}`).value
+            placeArr.push(places);
         }
-        function handleMap() {
-            let placeArr = [];
-            let sum = 0;
-            for (let i = 0; i <= 4; i++) {
-                sum += i
-                const places = document.getElementById(`input${sum}`).value;
+        let coords = [];
+        let sumLat = 0.0, sumLon = 0.0;
+        let ul = document.getElementById('list')
+        for (let place of placeArr) {
+            const coord = await getCoord(place);
+            coords.push(coord)
+            sumLat += coord.lat; sumLon += coord.lon;
+            let li = document.createElement('li');
+            let text = `${place}: ${coord.roadAddr}, 위도: ${coord.lat.toFixed(6)}, 경도: ${coord.lon.toFixed(6)}`;
+            li.innerHTML = text;
+            ul.appendChild(li);
+        }
+        drawMaps(coords, sumLat/coords.length, sumLon/coords.length);
+        document.getElementById('list').innerHTML = placeArr
+        return placeArr
+    }
+
+    window.onload = () => {
+        const kakaoScript = document.createElement('script');
+        kakaoScript.src = `http://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoJsKey}&autoload=false`;
+        kakaoScript.onload = () => {
+            kakao.maps.load(() => {
+            })
+            document.head.appendChild(kakaoScript);
+        }
+        }
+
+        async function getCoord(place) {  // 함수 앞에 async를 사용하면 함수 내 await를 사용할 수 있다.(Coordinate는 좌표를 뜻한다.)
+            try {
+                let params2 = `keyword=${encodeURIComponent(place)}`;
+                let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`
+
+                let response = await fetch(roadUrl); // fetch로 외부로 나가고 json으로 받아온다.
+                // fetch(roadUrl)
+                    // .then(response => response.json())
+                let result = await response.json();
+                let roadAddrVal = result.results.juso[0].roadAddr
+
+                let kakaoUrl = `${kakaoBaseUrl}?query=${encodeURIComponent(roadAddrVal)}`;
+                let header = {Authorization: `KakaoAK ${kakaoRestKey}`};
+                response = await fetch(kakaoUrl, {headers: header})
+                result = await response.json();
+                let lat = parseFloat(result.documents[0].y);
+                let lon = parseFloat(result.documents[0].x);
+                return {place, roadAddr: roadAddrVal, lat, lon};
+            } catch (error) {
+                console.log(error);
+                return {place, roadAddr:null, lat:null, lon:null}
             }
-            return placeArr = [`${places}`]
-            document.getElementById('list').innerHTML = placeArr
+        }
+        function drawMaps(coords, centerLat, centerLon) {
+            let container = document.getElementById('map');
+            let center = new kakao.maps.LatLng(centerLat, centerLon);
+            let map = new kakao.maps.Map(container, { center, level: 7 }); 
+
+            for (let coord of coords) {
+                let marker = new kakao.maps.Marker({
+                    map: map,
+                    position: new kakao.maps.LatLng(coord.lat, coord.lon)
+                });
+                let infowindow = new kakao.maps.InfoWindow({
+                    content : `<div style="padding:5px;">${coord.place}<br>${coord.roadAddr}</div>`
+                });
+                kakao.maps.event.addListener(marker, 'mouseover', () => {
+                    infowindow.open(map, marker);
+                });
+                kakao.maps.event.addListener(marker, 'mouseout', () => {
+                    infowindow.close();
+                });     
+            }
         }
     </script>
     <style>
