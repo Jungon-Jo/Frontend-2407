@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>여러곳 입력받아 지도에 표시하기</title>
     <script src="00_key.js"></script>
+    <script>
+        const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
+        const kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
+        const params1 = 'currentPage=1&countPerPage=5';
+        const params3 = `confmKey=${roadAddKey}&resultType=json`;
+        
+        window.onload = () => {
+        }
+        function handleMap() {
+            let placeArr = [];
+            let sum = 0;
+            for (let i = 0; i <= 4; i++) {
+                sum += i
+                const places = document.getElementById(`input${sum}`).value;
+            }
+            return placeArr = [`${places}`]
+            document.getElementById('list').innerHTML = placeArr
+        }
+    </script>
     <style>
         input, button {
             padding: 5px;
@@ -16,13 +35,14 @@
     <h3>여러곳 입력받아 지도에 표시하기</h3>
     <hr>
     <input type="text" id="input1" placeholder="장소명을 입력하세요">
-    <input type="text" id="input1" placeholder="장소명을 입력하세요">
-    <input type="text" id="input1" placeholder="장소명을 입력하세요">
-    <input type="text" id="input1" placeholder="장소명을 입력하세요">
-    <input type="text" id="input1" placeholder="장소명을 입력하세요">
+    <input type="text" id="input2" placeholder="장소명을 입력하세요">
+    <input type="text" id="input3" placeholder="장소명을 입력하세요">
+    <input type="text" id="input4" placeholder="장소명을 입력하세요">
+    <input type="text" id="input5" placeholder="장소명을 입력하세요">
     <button onclick="handleMaps()">지도에 표시하기</button>
     <hr>
     <ul id="list">
+        <li id="list"></li>
     </ul>
     <div id="map" style="width:800px;height:600px; margin-top: 20px;"></div>
 </body>
