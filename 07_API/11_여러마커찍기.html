@@ -60,25 +60,24 @@
             }
         }
         function drawMaps(coords, centerLat, centerLon) {
-            // console.log(place, lat, lon)
             let container = document.getElementById('map');
             let center = new kakao.maps.LatLng(centerLat, centerLon);
-            let map = new kakao.maps.Map(container, {center, level: 7});
+            let map = new kakao.maps.Map(container, { center, level: 7 }); 
 
             for (let coord of coords) {
                 let marker = new kakao.maps.Marker({
                     map: map,
                     position: new kakao.maps.LatLng(coord.lat, coord.lon)
-                })
-                let infowindow = kakao.maps.InfoWindow({
-                    content: `<div style="padding: 5px">${coord.place}<br>${coord.roadAddr}</div>`
-                })
+                });
+                let infowindow = new kakao.maps.InfoWindow({
+                    content : `<div style="padding:5px;">${coord.place}<br>${coord.roadAddr}</div>`
+                });
                 kakao.maps.event.addListener(marker, 'mouseover', () => {
                     infowindow.open(map, marker);
-                })
+                });
                 kakao.maps.event.addListener(marker, 'mouseout', () => {
                     infowindow.close();
-                })
+                });     
             }
         }
     </script>
