@@ -41,8 +41,8 @@
                         .then(response => response.json())
                         .then(result => {
                             console.log(result)
-                            let lat = parseFloat(result.document[0].y);
-                            let lon = parseFloat(result.document[0].x);
+                            let lat = parseFloat(result.documents[0].y);
+                            let lon = parseFloat(result.documents[0].x);
                             document.getElementById('lat').innerHTML = String(lat)
                             document.getElementById('lon').innerHTML = String(lon)
 
