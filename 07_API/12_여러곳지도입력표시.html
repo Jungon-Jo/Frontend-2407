@@ -6,46 +6,39 @@
     <title>여러곳 입력받아 지도에 표시하기</title>
     <script src="00_key.js"></script>
     <script>
-    
-    const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
-    const kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
-    const params1 = 'currentPage=1&countPerPage=5';
-    const params3 = `confmKey=${roadAddKey}&resultType=json`;
-    let placeArr = [];
-    
-    async function handleMaps() {
-        placeArr = [];
-        let sum = 0;
-        for (let i = 1; i <= 5; i++) {
-            sum += i
-            const places = document.getElementById(`input${sum}`).value
-            placeArr.push(places);
-        }
-        let coords = [];
-        let sumLat = 0.0, sumLon = 0.0;
-        let ul = document.getElementById('list')
-        for (let place of placeArr) {
-            const coord = await getCoord(place);
-            coords.push(coord)
-            sumLat += coord.lat; sumLon += coord.lon;
-            let li = document.createElement('li');
-            let text = `${place}: ${coord.roadAddr}, 위도: ${coord.lat.toFixed(6)}, 경도: ${coord.lon.toFixed(6)}`;
-            li.innerHTML = text;
-            ul.appendChild(li);
-        }
-        drawMaps(coords, sumLat/coords.length, sumLon/coords.length);
-        document.getElementById('list').innerHTML = placeArr
-        return placeArr
-    }
+        const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
+        const kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
+        const params1 = 'currentPage=1&countPerPage=5';
+        const params3 = `confmKey=${roadAddKey}&resultType=json`;
+        const header = {Authorization: `KakaoAK ${kakaoRestKey}`};
 
-    window.onload = () => {
         const kakaoScript = document.createElement('script');
         kakaoScript.src = `http://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoJsKey}&autoload=false`;
         kakaoScript.onload = () => {
-            kakao.maps.load(() => {
-            })
-            document.head.appendChild(kakaoScript);
-        }
+            kakao.maps.load(() => { });
+        };
+        document.head.appendChild(kakaoScript);
+
+        async function handleMaps() {
+            let placeArr = [];
+            for (let i = 1; i <= 5; i++) {
+                const places = document.getElementById(`input${i}`).value
+                placeArr.push(places);
+            }
+            let coords = [];
+            let sumLat = 0.0, sumLon = 0.0;
+
+            for (let place of placeArr) {
+                    const coord = await getCoord(place);
+                    coords.push(coord)
+                    sumLat += coord.lat; sumLon += coord.lon;
+                    let ul = document.getElementById('list')
+                    let li = document.createElement('li');
+                    let text = `${place}: ${coord.roadAddr}, 위도: ${coord.lat.toFixed(6)}, 경도: ${coord.lon.toFixed(6)}`;
+                    li.innerHTML = text;
+                    ul.appendChild(li)
+            }
+            drawMaps(coords, sumLat/coords.length, sumLon/coords.length);
         }
 
         async function getCoord(place) {  // 함수 앞에 async를 사용하면 함수 내 await를 사용할 수 있다.(Coordinate는 좌표를 뜻한다.)
@@ -53,14 +46,11 @@
                 let params2 = `keyword=${encodeURIComponent(place)}`;
                 let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`
 
-                let response = await fetch(roadUrl); // fetch로 외부로 나가고 json으로 받아온다.
-                // fetch(roadUrl)
-                    // .then(response => response.json())
+                let response = await fetch(roadUrl);
                 let result = await response.json();
                 let roadAddrVal = result.results.juso[0].roadAddr
 
                 let kakaoUrl = `${kakaoBaseUrl}?query=${encodeURIComponent(roadAddrVal)}`;
-                let header = {Authorization: `KakaoAK ${kakaoRestKey}`};
                 response = await fetch(kakaoUrl, {headers: header})
                 result = await response.json();
                 let lat = parseFloat(result.documents[0].y);
@@ -74,7 +64,7 @@
         function drawMaps(coords, centerLat, centerLon) {
             let container = document.getElementById('map');
             let center = new kakao.maps.LatLng(centerLat, centerLon);
-            let map = new kakao.maps.Map(container, { center, level: 7 }); 
+            let map = new kakao.maps.Map(container, { center, level: 10 }); 
 
             for (let coord of coords) {
                 let marker = new kakao.maps.Marker({
@@ -111,7 +101,6 @@
     <button onclick="handleMaps()">지도에 표시하기</button>
     <hr>
     <ul id="list">
-        <li id="list"></li>
     </ul>
     <div id="map" style="width:800px;height:600px; margin-top: 20px;"></div>
 </body>
