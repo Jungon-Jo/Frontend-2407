@@ -9,7 +9,7 @@
         const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
         const kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
         const params1 = 'currentPage=1&countPerPage=5';
-        const params3 = `confmKey=${roadAddKey}&resultType=json`;
+        const params3 = `confmKey=${roadAddrKey}&resultType=json`;
         const header = {Authorization: `KakaoAK ${kakaoRestKey}`};
 
         const kakaoScript = document.createElement('script');
@@ -30,6 +30,7 @@
 
             for (let place of placeArr) {
                     const coord = await getCoord(place);
+                    console.log(coord);
                     coords.push(coord)
                     sumLat += coord.lat; sumLon += coord.lon;
                     let ul = document.getElementById('list')

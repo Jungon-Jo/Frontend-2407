@@ -21,7 +21,7 @@
             let kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
             let params1 = 'currentPage=1&countPerPage=5';
             let params2 = `keyword=${encodeURIComponent(inputPlace)}`;
-            let params3 = `confmKey=${roadAddKey}&resultType=json`;
+            let params3 = `confmKey=${roadAddrKey}&resultType=json`;
             let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`
 
             document.getElementById('place').innerHTML = inputPlace
